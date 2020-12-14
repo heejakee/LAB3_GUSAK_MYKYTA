@@ -2,36 +2,69 @@
 
 class Matrix
 {
+private:
+    double **M;
+    int n, m; //n-rows m-cols
 public:
     // dodatkowy konstruktor jako argument przyjmujący ścieżkę do pliku o podanym wcześniej formacie i na jego podstawie tworzący nową macierz na podstawie przekazanego pliku
     Matrix(std::string path);
     // przyjmujący dwa argumenty typu int tworzący macierz o podanych wymiarach zainicjalizowaną zerami
-    Matrix(int n, int m);
-    // przyjmujący jeden argument typu int tworzący macierz kwadratową o podanym rozmiarze zainicjalizowaną zerami
-    Matrix(int n);
+    Matrix(int n, int m){
+        M= new double* [n];
+        for(int z=0; z<n; z++){
+            M[z]= new double [m];
+        }
+    }
 
-    ~Matrix();
+    // przyjmujący jeden argument typu int tworzący macierz kwadratową o podanym rozmiarze zainicjalizowaną zerami
+    Matrix(int n){
+        M= new double* [n];
+        for(int z=0; z<n; z++){
+            M[z]= new double [n];
+        }
+    }
+
+    ~Matrix(){
+        for(int z=0;z<n; z++){
+            delete[] M[z];
+        }
+        delete[] M;
+    }
 
     // set(n, m, val) - metoda ustawiająca wartość elementu (n, m) na val
-    void set(int n, int m, double val);
+    void set(int n, int m, double val){
+        M[n][m] = val;
+    }
 
     // get(n, m) - metoda pobierająca element (n, m)
-    double get(int n, int m);
+    double get(int n, int m){
+        return M[n][m];
+    }
 
     // add(Matrix m2) - metoda przyjmująca jako argument inną macierz i zwracająca jako wynik nową macierz będącą sumą bieżącej macierzy oraz macierzy przekazanej jako argument
-    Matrix add(Matrix& m2);
+    Matrix add(Matrix& m2){
+        for(int w=0;w<n;w++){
+            for(int s=0;s<n;s++){
+                Matrix res_m[w][s] = m2 + M;
+            }
+        }
+    }
 
     // subtract(Matrix m2) - metoda przyjmująca jako argument inną macierz i zwracająca jako wynik nową macierz będącą różnicą bieżącej macierzy oraz macierzy przekazanej jako argument
-    Matrix subtract(Matrix& m2);
+    //Matrix subtract(Matrix& m2);
 
     // multiply(Matrix m2) - metoda przyjmująca jako argument inną macierz i zwracająca jako wynik nową macierz będącą iloczynem bieżącej macierzy oraz macierzy przekazanej jako argument
-    Matrix multiply(Matrix& m2);
+    //Matrix multiply(Matrix& m2);
 
     // cols() - metoda zwracająca liczbę kolumn macierzy
-    int cols();
+    int cols(){
+        return m;
+    }
 
     // rows() - metoda zwracająca liczbę wierszy macierzy
-    int rows();
+    int rows(){
+        return n;
+    }
 
     // print() - metoda wyświetlająca macierz na ekranie
     // https://invisible-island.net/ncurses/announce.html
