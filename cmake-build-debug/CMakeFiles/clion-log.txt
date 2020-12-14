@@ -1,0 +1,4 @@
+Cannot generate into C:\Users\dogfr\Documents\GitHub\LAB3_GUSAK_MYKYTA\LAB3_GUSAK_MYKYTA
+It was created with incompatible generator 'Visual Studio 15 2017'
+
+Please either delete it manually or select another generation directory

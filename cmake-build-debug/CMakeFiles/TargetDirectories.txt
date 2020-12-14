@@ -1,0 +1,3 @@
+C:/Users/dogfr/Documents/GitHub/LAB3_GUSAK_MYKYTA/LAB3_GUSAK_MYKYTA/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/dogfr/Documents/GitHub/LAB3_GUSAK_MYKYTA/LAB3_GUSAK_MYKYTA/cmake-build-debug/CMakeFiles/LAB3_GUSAK_MYKYTA.dir
+C:/Users/dogfr/Documents/GitHub/LAB3_GUSAK_MYKYTA/LAB3_GUSAK_MYKYTA/cmake-build-debug/CMakeFiles/edit_cache.dir
